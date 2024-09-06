@@ -1,0 +1,32 @@
+Evaluating the Function myMean
+The assignment is to evaluate the following function called myMean. The data for this function is called assignment. Provide reference and explanation as to why this function works or does not work.
+
+Initial Results
+
+The function myMean does not work as intended because of an incorrect reference to the input variable.
+
+Code Breakdown
+myMean <- function(assignment2) {
+    return(sum(assignment)/length(someData))
+}
+Function Name: myMean is supposed to calculate the mean of a vector of numbers.
+Input Argument: The function accepts an input vector called assignment2.
+Error: Inside the function, sum(assignment) is incorrect because the input is named assignment2, not assignment. Also, length(someData) should reference the input data (assignment2), but it incorrectly refers to someData, which isn’t defined.
+Fixing the Function
+To correct the function, the code should consistently reference the input assignment2
+
+myMean <- function(assignment2) {
+    return(sum(assignment2) / length(assignment2))
+}
+Testing the Function
+assignment2 <- c(16, 18, 14, 22, 27, 17, 19, 17, 17, 22, 20, 22)
+myMean(assignment2)
+The result should be 19.25
+
+Explanation
+Original Function: The original function fails because assignment and someData are not defined. To calculate the mean, the function must use the correct variable, which is assignment2 in this case.
+
+Fixed Function: The corrected version properly uses the input variable assignment2 in both the sum and length functions, returning the correct mean (19.25) for the provided data.
+
+Reference
+In R, sum() calculates the sum of the elements of a numeric vector, and length() returns the number of elements in a vector. To calculate the mean, you divide the sum by the number of elements, which is what the corrected function does.
