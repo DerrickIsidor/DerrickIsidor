@@ -10,7 +10,7 @@ data <- data.frame(Name, ABC_political_poll_results, CBS_political_poll_results)
 # Call the newly formed dataframe
 data
 
-
+--------------------------------------------------------------------------------------
 
 # Flight Information
 DepartureCity <- c('Atlanta', 'Atlanta', 'Atlanta')
