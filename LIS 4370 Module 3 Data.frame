@@ -1,0 +1,24 @@
+
+# 2016 Presidential Election Data
+Name <- c('Jeb', 'Donald', 'Ted', 'Marco', 'Carly', 'Hillary', 'Berine')
+ABC_political_poll_results <- c(4, 62, 51, 21, 2, 14, 15)
+CBS_political_poll_results <- c(12, 75, 43, 19, 1, 21, 19) 
+
+# Converting to a Data.frame
+data <- data.frame(Name, ABC_political_poll_results, CBS_political_poll_results)
+
+# Call the newly formed dataframe
+data
+
+
+
+# Flight Information
+DepartureCity <- c('Atlanta', 'Atlanta', 'Atlanta')
+ArrivalCity <- c('Seoul, South Korea', 'Santiago, Chile', 'San Salvador, El Salvador')
+FlightTime <- c(15, 9, 3)
+
+
+# Converting to a Data.frame
+Flights <- data.frame(DepartureCity, ArrivalCity, FlightTime)
+
+Flights
