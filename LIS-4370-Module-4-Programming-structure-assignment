@@ -1,0 +1,77 @@
+# Introduction -- Module # 4 Programming structure assignment
+if(FALSE) {
+
+title: 'Module # 4 Programming structure assignment'
+author: 'Derrick Isidor'
+date: '9/16/24'
+output: html_document
+
+}
+
+#######################################################
+
+## Rules for the 3 variables
+# first assessment by a general doctor (bad=1, good =0)
+# second assessment by a general doctor (high =1, low =0)
+# Priority  (low = 0, high =1)
+
+library(ggplot2)
+# Import# Import# Importing my data
+
+# Create a vector of the observations
+hospital_data <- c("0.6,103,1,0,0",
+                    "0.3,87,1,0,1",
+                    "0.4,32,1,1,0",
+                    "0.4,42,1,1,1",
+                    "0.2,59,0,0,0",
+                    "0.6,109,0,0,1",
+                    "0.3,78,0,1,0",
+                    "0.4,205,0,1,1",
+                    "0.9,135,0,1,1", # There is an NA in this dataset. for the purpose of simplicy I will replace it with the mean
+                    "0.2,176,1,1,1")
+
+# Split the data into columns
+split_data <- strsplit(hospital_data, ",")
+
+# Convert into a dataframe
+df <- as.data.frame(do.call(rbind, split_data), stringsAsFactors = FALSE)
+
+# Assign column names
+colnames(df) <- c("Freq", "Bloodp", "First", "Second", "FinalDecision")
+
+# Convert numeric columns back to numeric (Value1 and Value2)
+df$Freq <- as.numeric(df$Freq)
+df$Bloodp <- as.numeric(df$Bloodp)
+df$First <- as.numeric(df$First)
+df$Second <- as.numeric(df$Second)
+df$FinalDecision <- as.numeric(df$FinalDecision)
+
+str(df)
+
+# Display the dataframe
+print(df)
+
+#################################################################
+
+# box plot of patients blood pressure
+boxplot(df$Bloodp)
+
+# or 
+ggplot(df, aes(x = Bloodp)) +
+  geom_boxplot() +
+  labs(title = "Box plot of Blood Pressure", x = "Blood Pressure", y = "Count") +
+  theme_minimal()
+
+
+
+# Histogram of patients frequency 
+hist(df$Bloodp)
+
+# # Create the histogram
+ggplot(df, aes(x = Bloodp)) +
+  geom_histogram(binwidth = 25, fill = "blue", color = "black", alpha = 0.7) +
+  labs(title = "Histogram of Blood Pressure", x = "Blood Pressure", y = "Count") +
+  theme_minimal()
+  
+
+
