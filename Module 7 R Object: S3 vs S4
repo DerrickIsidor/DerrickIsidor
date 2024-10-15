@@ -1,0 +1,34 @@
+#  Module 7 R Object: S3 vs S4
+
+# S3 Example
+# Define a simple S3 object for a bank account
+bank_account_s3 <- list(owner = "Jane Doe", balance = 1500, account_type = "Checking")
+class(bank_account_s3) <- "bank_account"
+
+# Define the print method for the S3 class 'bank_account'
+print.bank_account <- function(account) {
+  cat("Account Owner:", account$owner, "\n")
+  cat("Account Balance: $", account$balance, "\n")
+  cat("Account Type:", account$account_type, "\n")
+}
+
+# Print the bank account object using the custom method
+print(bank_account_s3)
+
+
+# S4 Example
+# Define an S4 class 'student'
+setClass("student", 
+         slots = list(name = "character", age = "numeric", GPA = "numeric"))
+
+# Create an S4 object
+student_s4 <- new("student", name = "Alice", age = 22, GPA = 3.9)
+
+# Define a method for S4 class 'student'
+setMethod("show", "student", function(object) {
+  cat("Student Info\n")
+  cat("Name:", object@name, "\nAge:", object@age, "\nGPA:", object@GPA, "\n")
+})
+
+# Use the show method
+student_s4
