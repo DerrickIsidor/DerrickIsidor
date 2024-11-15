@@ -1,0 +1,58 @@
+---
+title: "Module 12: R Markdown (Visualizing)"
+author: "Derrick Isidor"
+date: "2024-11-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r Social Network Packages}
+
+library(GGally)
+library(network)
+library(sna)
+library(ggplot2)
+
+```
+
+```{r}
+
+# Creating a random graph with 15 nodes, 50% probability for edges between nodes
+net = rgraph(15, mode = "graph", tprob = 0.5)
+
+# Converting the graph into a network object
+net = network(net, directed = FALSE)
+
+# Assigning vertex names (node labels)
+network.vertex.names(net) = letters[1:15]
+```
+
+## In R Markdown we can include plots
+
+You can also embed plots, for example:
+
+```{r Network, echo = FALSE}
+
+# Visualizing the network with customized settings
+ggnet2(net, node.size = 8, node.color = "black", edge.size = 1, edge.color = "grey", label = TRUE, label.size = 4, label.color = "red")
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+### **Reflection**
+
+Using R Markdown to create this document was a really fun learning experience. One challenge I often face is understanding the syntax for code chunks and making sure the R code runs correctly when the document is compiled. However, I found that R Markdown’s integration with RStudio made this much easier. It allowed me to run code chunks as I worked on the documentation, which was incredibly helpful. I also really enjoyed being able to run smaller pieces of code at a time to analyze the results. Overall, this assignment was a great way to get more comfortable using R Markdown.
+
+## **GitHub Repository**
+
+You can find the full code and R Markdown file in my GitHub repository. <>
