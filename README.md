@@ -1,2 +1,1 @@
-- Hey
-- Let's code
+Hey let's code
